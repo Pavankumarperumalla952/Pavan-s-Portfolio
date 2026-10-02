@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Sun, Moon, FileText, ArrowUpRight, Sparkles } from 'lucide-react';
+import { Menu, X, FileText, ArrowUpRight } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 interface NavbarProps {
-  darkMode: boolean;
-  setDarkMode: (val: boolean) => void;
+  darkMode?: boolean;
+  setDarkMode?: (val: boolean) => void;
 }
 
 export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
@@ -102,15 +102,6 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
 
           {/* Action Zone */}
           <div className="flex items-center gap-2.5">
-            {/* Theme Toggle */}
-            <button
-              onClick={() => setDarkMode(!darkMode)}
-              className="btn-3d p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:text-cyan-400 dark:hover:text-cyan-400 hover:bg-slate-100 dark:hover:bg-white/10 transition-colors border border-cyan-500/20 cursor-pointer"
-              aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-            >
-              {darkMode ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-slate-700" />}
-            </button>
-
             {/* Resume CTA */}
             <a
               href={PERSONAL_INFO.resumeUrl}
