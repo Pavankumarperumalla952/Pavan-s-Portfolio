@@ -28,10 +28,12 @@ export default function Hobbies() {
 
   return (
     <section id="hobbies" className="py-24 relative overflow-hidden">
-      {/* Background Anime Watermark */}
+      {/* Background Anime Watermark & 3D Ambient Orbs */}
       <div className="absolute top-12 right-10 pointer-events-none select-none opacity-5 font-black text-8xl font-display text-pink-400 hidden md:block">
         PASSIONS
       </div>
+      <div className="absolute top-1/3 -left-32 w-80 h-80 bg-pink-500/10 rounded-full blur-3xl pointer-events-none animate-subtle-float" />
+      <div className="absolute bottom-10 right-0 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl pointer-events-none animate-subtle-float-reverse" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -59,36 +61,48 @@ export default function Hobbies() {
             return (
               <ScrollReveal key={hobby.id} direction="up" delay={index * 90}>
                 <TiltCard glowColor={getGlow(index)}>
-                  <div className="relative group rounded-2xl p-6 transition-all duration-300 border border-cyan-500/20 bg-[#0f111f]/85 holo-sheen h-full flex flex-col justify-between hover:border-pink-500/40 shadow-xl">
+                  <div className="relative group rounded-2xl p-6 sm:p-7 transition-all duration-300 border border-cyan-500/20 bg-[#0f111f]/90 holo-sheen h-full flex flex-col justify-between hover:border-pink-500/50 shadow-2xl preserve-3d">
                     <div>
-                      {/* Icon & Index */}
-                      <div className="flex items-center justify-between mb-5">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-pink-500/20 to-purple-500/20 border border-pink-500/30 text-pink-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+                      {/* Icon & Index with 3D Popout */}
+                      <div className="flex items-center justify-between mb-5" style={{ transform: 'translateZ(20px)' }}>
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-pink-500/20 to-purple-500/20 border border-pink-500/40 text-pink-400 flex items-center justify-center group-hover:scale-110 shadow-lg shadow-pink-500/20 transition-transform">
                           <Icon className="w-6 h-6" />
                         </div>
-                        <span className="text-xs font-mono text-cyan-400/80 bg-cyan-950/40 px-2 py-0.5 rounded border border-cyan-500/20">
+                        <span className="text-xs font-mono font-bold text-cyan-300 bg-cyan-950/60 px-2.5 py-1 rounded-md border border-cyan-500/30 shadow-sm">
                           ACT // 0{index + 1}
                         </span>
                       </div>
 
                       {/* Title */}
-                      <h3 className="text-xl font-bold font-display text-slate-900 dark:text-white mb-2.5 group-hover:text-pink-400 transition-colors">
+                      <h3
+                        className="text-xl font-bold font-display text-slate-900 dark:text-white mb-2.5 group-hover:text-pink-300 transition-colors"
+                        style={{ transform: 'translateZ(16px)' }}
+                      >
                         {hobby.title}
                       </h3>
 
                       {/* Short Highlight */}
-                      <div className="text-xs font-semibold text-purple-400 mb-3">
+                      <div
+                        className="text-xs font-semibold text-purple-300 mb-3 font-mono"
+                        style={{ transform: 'translateZ(14px)' }}
+                      >
                         {hobby.shortDesc}
                       </div>
 
                       {/* Detailed Description */}
-                      <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                      <p
+                        className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed"
+                        style={{ transform: 'translateZ(10px)' }}
+                      >
                         {hobby.fullDesc}
                       </p>
                     </div>
 
                     {/* Bottom decorative bar */}
-                    <div className="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-slate-400">
+                    <div
+                      className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-slate-400"
+                      style={{ transform: 'translateZ(12px)' }}
+                    >
                       <span className="flex items-center gap-1.5 font-medium text-purple-300">
                         <Sparkles className="w-3.5 h-3.5 text-pink-400" />
                         Inspiration Matrix

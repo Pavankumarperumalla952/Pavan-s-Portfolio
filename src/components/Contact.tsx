@@ -1,5 +1,5 @@
 import { useState, FormEvent } from 'react';
-import { Mail, Phone, Linkedin, Github, Send, Copy, Check, MapPin, MessageSquare } from 'lucide-react';
+import { Mail, Phone, Linkedin, Github, Send, Copy, Check, MapPin, MessageSquare, Sparkles } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import TiltCard from './TiltCard';
 import ScrollReveal from './ScrollReveal';
@@ -32,10 +32,12 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-24 relative overflow-hidden bg-slate-950/40 border-t border-cyan-500/10">
-      {/* Background Anime Watermark */}
+      {/* Background Anime Watermark & Ambient Orbs */}
       <div className="absolute bottom-10 left-10 pointer-events-none select-none opacity-5 font-black text-8xl font-display text-pink-400 hidden md:block">
         CONNECT
       </div>
+      <div className="absolute top-1/4 -right-28 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none animate-subtle-float" />
+      <div className="absolute bottom-10 -left-20 w-72 h-72 bg-pink-500/10 rounded-full blur-3xl pointer-events-none animate-subtle-float-reverse" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -71,11 +73,11 @@ export default function Contact() {
             {/* Contact Cards with 3D Tilt and ScrollReveal */}
             <div className="space-y-4">
               {/* Email */}
-              <ScrollReveal direction="up" delay={150}>
+              <ScrollReveal direction="left" delay={150}>
                 <TiltCard glowColor="cyan">
-                  <div className="p-4 rounded-2xl bg-[#0f111f]/85 border border-cyan-500/20 shadow-md flex items-center justify-between gap-3 holo-sheen">
-                    <div className="flex items-center gap-3.5 min-w-0">
-                      <div className="w-11 h-11 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center shrink-0 border border-cyan-500/30">
+                  <div className="p-4 rounded-2xl bg-[#0f111f]/90 border border-cyan-500/25 shadow-xl flex items-center justify-between gap-3 holo-sheen preserve-3d">
+                    <div className="flex items-center gap-3.5 min-w-0" style={{ transform: 'translateZ(15px)' }}>
+                      <div className="w-11 h-11 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center shrink-0 border border-cyan-500/30 shadow-md">
                         <Mail className="w-5 h-5" />
                       </div>
                       <div className="min-w-0">
@@ -92,6 +94,7 @@ export default function Contact() {
                       onClick={() => copyToClipboard(PERSONAL_INFO.email, 'email')}
                       className="btn-3d p-2 rounded-lg text-slate-400 hover:text-cyan-400 hover:bg-white/10 transition-colors shrink-0 cursor-pointer"
                       title="Copy email to clipboard"
+                      style={{ transform: 'translateZ(18px)' }}
                     >
                       {copiedType === 'email' ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
                     </button>
@@ -100,11 +103,11 @@ export default function Contact() {
               </ScrollReveal>
 
               {/* Phone */}
-              <ScrollReveal direction="up" delay={200}>
+              <ScrollReveal direction="left" delay={200}>
                 <TiltCard glowColor="magenta">
-                  <div className="p-4 rounded-2xl bg-[#0f111f]/85 border border-pink-500/20 shadow-md flex items-center justify-between gap-3 holo-sheen">
-                    <div className="flex items-center gap-3.5 min-w-0">
-                      <div className="w-11 h-11 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center shrink-0 border border-pink-500/30">
+                  <div className="p-4 rounded-2xl bg-[#0f111f]/90 border border-pink-500/25 shadow-xl flex items-center justify-between gap-3 holo-sheen preserve-3d">
+                    <div className="flex items-center gap-3.5 min-w-0" style={{ transform: 'translateZ(15px)' }}>
+                      <div className="w-11 h-11 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center shrink-0 border border-pink-500/30 shadow-md">
                         <Phone className="w-5 h-5" />
                       </div>
                       <div className="min-w-0">
@@ -121,6 +124,7 @@ export default function Contact() {
                       onClick={() => copyToClipboard(PERSONAL_INFO.phone, 'phone')}
                       className="btn-3d p-2 rounded-lg text-slate-400 hover:text-pink-400 hover:bg-white/10 transition-colors shrink-0 cursor-pointer"
                       title="Copy phone to clipboard"
+                      style={{ transform: 'translateZ(18px)' }}
                     >
                       {copiedType === 'phone' ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
                     </button>
@@ -129,16 +133,19 @@ export default function Contact() {
               </ScrollReveal>
 
               {/* Location */}
-              <ScrollReveal direction="up" delay={250}>
+              <ScrollReveal direction="left" delay={250}>
                 <TiltCard glowColor="purple">
-                  <div className="p-4 rounded-2xl bg-[#0f111f]/85 border border-purple-500/20 shadow-md flex items-center gap-3.5 holo-sheen">
-                    <div className="w-11 h-11 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center shrink-0 border border-purple-500/30">
+                  <div className="p-4 rounded-2xl bg-[#0f111f]/90 border border-purple-500/25 shadow-xl flex items-center gap-3.5 holo-sheen preserve-3d">
+                    <div
+                      className="w-11 h-11 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center shrink-0 border border-purple-500/30 shadow-md"
+                      style={{ transform: 'translateZ(15px)' }}
+                    >
                       <MapPin className="w-5 h-5" />
                     </div>
-                    <div>
+                    <div style={{ transform: 'translateZ(12px)' }}>
                       <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider font-mono">Location // Campus</div>
                       <div className="text-xs sm:text-sm font-semibold text-white">
-                        Lendi Institute of Engineering & Technology, Andhra Pradesh
+                        Lendi Institute, Vizianagaram, AP, India
                       </div>
                     </div>
                   </div>
@@ -146,18 +153,18 @@ export default function Contact() {
               </ScrollReveal>
             </div>
 
-            {/* Social Buttons */}
+            {/* Social Networks Link Matrix */}
             <ScrollReveal direction="up" delay={300}>
-              <div className="pt-2">
-                <div className="text-xs uppercase font-bold text-slate-400 tracking-wider mb-3 font-mono">
-                  EXTERNAL CHANNELS • PROFILES
+              <div className="p-5 rounded-2xl bg-[#0f111f]/90 border border-cyan-500/20 shadow-xl">
+                <div className="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono mb-3">
+                  Professional Networks
                 </div>
                 <div className="flex gap-3">
                   <a
                     href={PERSONAL_INFO.linkedin}
                     target="_blank"
                     rel="noreferrer"
-                    className="btn-3d flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 border border-blue-500/30 font-semibold text-xs sm:text-sm transition-all"
+                    className="btn-3d flex-1 py-3 px-4 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/30 text-blue-400 flex items-center justify-center gap-2 text-xs font-mono font-semibold transition-colors"
                   >
                     <Linkedin className="w-4 h-4" />
                     <span>LinkedIn</span>
@@ -166,7 +173,7 @@ export default function Contact() {
                     href={PERSONAL_INFO.github}
                     target="_blank"
                     rel="noreferrer"
-                    className="btn-3d flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-white/5 hover:bg-white/10 text-white border border-cyan-500/30 font-semibold text-xs sm:text-sm transition-all"
+                    className="btn-3d flex-1 py-3 px-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-white flex items-center justify-center gap-2 text-xs font-mono font-semibold transition-colors"
                   >
                     <Github className="w-4 h-4" />
                     <span>GitHub</span>
@@ -176,92 +183,91 @@ export default function Contact() {
             </ScrollReveal>
           </div>
 
-          {/* Right Column: Interactive Message Form */}
+          {/* Right Column: Interactive Contact Form */}
           <div className="lg:col-span-7">
-            <ScrollReveal direction="up" delay={150}>
-              <TiltCard glowColor="cyan">
-                <div className="rounded-3xl p-6 sm:p-8 bg-[#0f111f]/90 border border-cyan-500/30 shadow-2xl holo-sheen">
-                  <div className="flex items-center gap-2 text-cyan-400 font-bold text-sm mb-4 font-mono">
-                    <MessageSquare className="w-4 h-4" />
-                    <span>TRANSMIT MESSAGE • DISPATCH</span>
+            <ScrollReveal direction="right" delay={150}>
+              <TiltCard glowColor="purple">
+                <div className="p-6 sm:p-8 rounded-3xl bg-[#0f111f]/90 border border-cyan-500/30 shadow-2xl backdrop-blur-xl relative overflow-hidden preserve-3d">
+                  <div className="flex items-center gap-2.5 mb-6 pb-4 border-b border-white/10" style={{ transform: 'translateZ(14px)' }}>
+                    <MessageSquare className="w-5 h-5 text-cyan-400" />
+                    <h3 className="text-xl font-bold font-display text-white">Send Direct Message</h3>
                   </div>
 
                   {formSubmitted ? (
-                    <div className="p-8 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-center animate-in zoom-in-95 duration-200">
-                      <div className="w-12 h-12 rounded-full bg-emerald-500 text-white flex items-center justify-center mx-auto mb-3 shadow-lg shadow-emerald-500/30">
-                        <Check className="w-6 h-6" />
+                    <div className="py-12 text-center space-y-4 animate-in fade-in duration-300">
+                      <div className="w-14 h-14 rounded-full bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center border border-emerald-500/30">
+                        <Check className="w-7 h-7" />
                       </div>
-                      <h4 className="text-lg font-bold text-white mb-1">
-                        Transmission Confirmed!
-                      </h4>
-                      <p className="text-sm text-slate-300">
-                        Your message has been sent to Pavan Kumar Perumalla. I will reply to you as soon as possible.
+                      <h4 className="text-lg font-bold text-white">Message Transmitted!</h4>
+                      <p className="text-sm text-slate-400 max-w-sm mx-auto">
+                        Thank you for reaching out. Your transmission has been queued and I will get back to you shortly.
                       </p>
                     </div>
                   ) : (
                     <form onSubmit={handleSubmit} className="space-y-4">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-xs font-semibold text-slate-300 mb-1.5 font-mono">
-                            Your Name <span className="text-pink-400">*</span>
+                          <label className="block text-xs font-mono text-slate-400 mb-1.5 uppercase tracking-wider">
+                            Your Name *
                           </label>
                           <input
                             type="text"
                             required
                             value={formData.name}
                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                            placeholder="e.g. John Doe"
-                            className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-cyan-500/20 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 text-sm transition-colors"
+                            placeholder="Alex Developer"
+                            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all"
                           />
                         </div>
                         <div>
-                          <label className="block text-xs font-semibold text-slate-300 mb-1.5 font-mono">
-                            Your Email <span className="text-pink-400">*</span>
+                          <label className="block text-xs font-mono text-slate-400 mb-1.5 uppercase tracking-wider">
+                            Email Address *
                           </label>
                           <input
                             type="email"
                             required
                             value={formData.email}
                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                            placeholder="e.g. john@example.com"
-                            className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-cyan-500/20 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 text-sm transition-colors"
+                            placeholder="alex@domain.com"
+                            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all"
                           />
                         </div>
                       </div>
 
                       <div>
-                        <label className="block text-xs font-semibold text-slate-300 mb-1.5 font-mono">
+                        <label className="block text-xs font-mono text-slate-400 mb-1.5 uppercase tracking-wider">
                           Subject
                         </label>
                         <input
                           type="text"
                           value={formData.subject}
                           onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                          placeholder="e.g. Project Collaboration / Engineering Inquiry"
-                          className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-cyan-500/20 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 text-sm transition-colors"
+                          placeholder="Project Inquiry / Collaboration / Opportunity"
+                          className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-xs font-semibold text-slate-300 mb-1.5 font-mono">
-                          Message <span className="text-pink-400">*</span>
+                        <label className="block text-xs font-mono text-slate-400 mb-1.5 uppercase tracking-wider">
+                          Message *
                         </label>
                         <textarea
                           required
                           rows={4}
                           value={formData.message}
                           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                          placeholder="Write your transmission here..."
-                          className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-cyan-500/20 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 text-sm transition-colors resize-none"
+                          placeholder="Tell me about your project, idea, or how we can collaborate..."
+                          className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all resize-none"
                         />
                       </div>
 
                       <button
                         type="submit"
-                        className="btn-3d w-full flex items-center justify-center gap-2 py-3 px-6 rounded-xl font-semibold text-sm text-white bg-gradient-to-r from-cyan-500 via-purple-600 to-pink-500 hover:from-cyan-400 hover:to-pink-400 shadow-lg shadow-cyan-500/25 cursor-pointer font-mono"
+                        className="btn-3d w-full py-4 px-6 rounded-xl font-bold text-white bg-gradient-to-r from-cyan-500 via-purple-600 to-pink-500 hover:from-cyan-400 hover:to-pink-400 shadow-xl shadow-cyan-500/25 flex items-center justify-center gap-2 cursor-pointer font-mono"
+                        style={{ transform: 'translateZ(16px)' }}
                       >
+                        <span>TRANSMIT MESSAGE</span>
                         <Send className="w-4 h-4" />
-                        <span>DISPATCH TRANSMISSION</span>
                       </button>
                     </form>
                   )}

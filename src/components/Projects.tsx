@@ -22,10 +22,12 @@ export default function Projects() {
 
   return (
     <section id="projects" className="py-24 relative overflow-hidden">
-      {/* Background Anime Watermark */}
+      {/* Background Anime Watermark & Ambient 3D Glows */}
       <div className="absolute top-10 right-8 pointer-events-none select-none opacity-5 font-black text-8xl font-display text-cyan-400 hidden md:block">
         PROJECTS
       </div>
+      <div className="absolute top-1/4 -left-28 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none animate-subtle-float" />
+      <div className="absolute bottom-1/4 -right-28 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl pointer-events-none animate-subtle-float-reverse" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header with ScrollReveal */}

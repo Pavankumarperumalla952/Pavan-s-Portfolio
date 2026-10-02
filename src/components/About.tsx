@@ -1,4 +1,4 @@
-import { Lightbulb, Code2, CircuitBoard, Globe2 } from 'lucide-react';
+import { Lightbulb, Code2, CircuitBoard, Globe2, Sparkles, Compass } from 'lucide-react';
 import TiltCard from './TiltCard';
 import ScrollReveal from './ScrollReveal';
 
@@ -40,10 +40,12 @@ export default function About() {
 
   return (
     <section id="about" className="py-24 relative overflow-hidden bg-slate-950/40 border-t border-cyan-500/10">
-      {/* Background Watermark */}
+      {/* Background Watermark & 3D Ambient Orbs */}
       <div className="absolute top-10 left-6 pointer-events-none select-none opacity-5 font-black text-8xl font-display text-cyan-400 hidden md:block">
         ABOUT
       </div>
+      <div className="absolute top-1/2 -right-24 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none animate-subtle-float" />
+      <div className="absolute bottom-10 -left-20 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl pointer-events-none animate-subtle-float-reverse" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header with ScrollReveal */}
@@ -65,9 +67,9 @@ export default function About() {
           <div className="lg:col-span-7 space-y-5 text-slate-600 dark:text-slate-300 text-base sm:text-lg leading-relaxed">
             <ScrollReveal direction="up" delay={100}>
               <TiltCard glowColor="cyan">
-                <div className="p-6 rounded-2xl bg-[#0f111f]/85 border border-cyan-500/20 shadow-xl relative overflow-hidden holo-sheen">
-                  <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-cyan-400 to-pink-500" />
-                  <p className="font-medium text-slate-800 dark:text-slate-200">
+                <div className="p-6 sm:p-7 rounded-2xl bg-[#0f111f]/90 border border-cyan-500/25 shadow-2xl relative overflow-hidden holo-sheen preserve-3d">
+                  <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-cyan-400 via-purple-500 to-pink-500" />
+                  <p className="font-medium text-slate-800 dark:text-slate-200" style={{ transform: 'translateZ(15px)' }}>
                     From an early age, I have always been curious about how things work and why they work the way they do.
                     That curiosity has gradually developed into a deep interest in technology, programming, electronics,
                     and software engineering.
@@ -114,10 +116,13 @@ export default function About() {
             </ScrollReveal>
 
             <ScrollReveal direction="up" delay={350}>
-              <div className="pt-3 border-t border-cyan-500/20 font-medium text-purple-400">
-                My ultimate goal is to keep learning, build meaningful projects, gain practical industry experience, and
-                grow into a well-rounded engineer who seamlessly blends technical depth, creativity, and real-world
-                problem-solving.
+              <div className="pt-4 border-t border-cyan-500/20 font-medium text-purple-400 flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-cyan-400 shrink-0" />
+                <span>
+                  My ultimate goal is to keep learning, build meaningful projects, gain practical industry experience, and
+                  grow into a well-rounded engineer who seamlessly blends technical depth, creativity, and real-world
+                  problem-solving.
+                </span>
               </div>
             </ScrollReveal>
           </div>
@@ -127,13 +132,16 @@ export default function About() {
             {highlights.map((item, index) => {
               const Icon = item.icon;
               return (
-                <ScrollReveal key={index} direction="up" delay={100 + index * 80}>
+                <ScrollReveal key={index} direction="right" delay={100 + index * 90}>
                   <TiltCard glowColor={item.glow}>
-                    <div className="p-5 rounded-2xl bg-[#0f111f]/85 border border-cyan-500/15 shadow-sm hover:border-cyan-400/40 transition-all duration-300 flex items-start gap-4 holo-sheen">
-                      <div className={`p-3 rounded-xl ${item.bg} ${item.color} shrink-0`}>
+                    <div className="p-5 sm:p-6 rounded-2xl bg-[#0f111f]/90 border border-cyan-500/20 shadow-xl hover:border-cyan-400/50 transition-all duration-300 flex items-start gap-4 holo-sheen preserve-3d">
+                      <div
+                        className={`p-3 rounded-xl ${item.bg} ${item.color} shrink-0 border border-white/10 shadow-lg`}
+                        style={{ transform: 'translateZ(20px)' }}
+                      >
                         <Icon className="w-6 h-6" />
                       </div>
-                      <div>
+                      <div style={{ transform: 'translateZ(14px)' }}>
                         <h3 className="text-base font-bold text-slate-900 dark:text-white mb-1">
                           {item.title}
                         </h3>

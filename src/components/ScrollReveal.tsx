@@ -4,7 +4,7 @@ interface ScrollRevealProps {
   children: ReactNode;
   className?: string;
   delay?: number;
-  direction?: 'up' | 'down' | 'left' | 'right' | 'none';
+  direction?: 'up' | 'down' | 'left' | 'right' | 'scale' | 'none';
   duration?: number;
 }
 
@@ -13,7 +13,7 @@ export default function ScrollReveal({
   className = '',
   delay = 0,
   direction = 'up',
-  duration = 600
+  duration = 750
 }: ScrollRevealProps) {
   const [isVisible, setIsVisible] = useState(false);
   const elementRef = useRef<HTMLDivElement>(null);
@@ -34,8 +34,8 @@ export default function ScrollReveal({
         }
       },
       {
-        threshold: 0.1,
-        rootMargin: '0px 0px -40px 0px'
+        threshold: 0.08,
+        rootMargin: '0px 0px -50px 0px'
       }
     );
 
@@ -52,18 +52,20 @@ export default function ScrollReveal({
   }, []);
 
   const getTransform = () => {
-    if (isVisible) return 'translate3d(0, 0, 0)';
+    if (isVisible) return 'perspective(1200px) translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
     switch (direction) {
       case 'up':
-        return 'translate3d(0, 24px, 0)';
+        return 'perspective(1200px) translate3d(0, 36px, -20px) rotateX(4deg) scale3d(0.97, 0.97, 0.97)';
       case 'down':
-        return 'translate3d(0, -24px, 0)';
+        return 'perspective(1200px) translate3d(0, -36px, -20px) rotateX(-4deg) scale3d(0.97, 0.97, 0.97)';
       case 'left':
-        return 'translate3d(24px, 0, 0)';
+        return 'perspective(1200px) translate3d(36px, 0, -20px) rotateY(-4deg) scale3d(0.97, 0.97, 0.97)';
       case 'right':
-        return 'translate3d(-24px, 0, 0)';
+        return 'perspective(1200px) translate3d(-36px, 0, -20px) rotateY(4deg) scale3d(0.97, 0.97, 0.97)';
+      case 'scale':
+        return 'perspective(1200px) translate3d(0, 20px, -40px) scale3d(0.92, 0.92, 0.92)';
       default:
-        return 'translate3d(0, 0, 0)';
+        return 'perspective(1200px) translate3d(0, 0, 0) scale3d(1, 1, 1)';
     }
   };
 

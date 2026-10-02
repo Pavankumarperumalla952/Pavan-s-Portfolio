@@ -9,10 +9,12 @@ export default function Resume() {
 
   return (
     <section id="resume" className="py-24 relative overflow-hidden">
-      {/* Background Anime Watermark */}
+      {/* Background Anime Watermark & Ambient 3D Glows */}
       <div className="absolute top-10 right-10 pointer-events-none select-none opacity-5 font-black text-8xl font-display text-cyan-400 hidden md:block">
         CREDENTIALS
       </div>
+      <div className="absolute top-1/4 -right-28 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none animate-subtle-float" />
+      <div className="absolute bottom-10 -left-20 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl pointer-events-none animate-subtle-float-reverse" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -66,11 +68,11 @@ export default function Resume() {
         {/* 3D Profile Summary Card (Matching New Resume Content) */}
         <ScrollReveal direction="up" delay={150}>
           <TiltCard glowColor="purple" className="max-w-4xl mx-auto">
-            <div className="rounded-3xl p-6 sm:p-10 bg-[#0f111f]/90 backdrop-blur-xl border border-cyan-500/30 shadow-2xl relative overflow-hidden holo-sheen">
+            <div className="rounded-3xl p-6 sm:p-10 bg-[#0f111f]/90 backdrop-blur-xl border border-cyan-500/30 shadow-2xl relative overflow-hidden holo-sheen preserve-3d">
               <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-cyan-500/15 to-transparent pointer-events-none rounded-bl-full" />
 
               {/* Identity Header */}
-              <div className="text-center pb-8 border-b border-white/10">
+              <div className="text-center pb-8 border-b border-white/10" style={{ transform: 'translateZ(16px)' }}>
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-semibold mb-3 border border-cyan-500/30 font-mono">
                   <FileText className="w-3.5 h-3.5" /> VERIFIED DOSSIER • OFFICIAL RESUME
                 </div>

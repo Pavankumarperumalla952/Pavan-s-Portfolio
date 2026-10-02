@@ -1,4 +1,4 @@
-import { GraduationCap, MapPin, Calendar, BookOpen, Award } from 'lucide-react';
+import { GraduationCap, MapPin, Calendar, BookOpen, Award, Sparkles } from 'lucide-react';
 import { EDUCATION_LIST } from '../data/portfolioData';
 import TiltCard from './TiltCard';
 import ScrollReveal from './ScrollReveal';
@@ -6,10 +6,12 @@ import ScrollReveal from './ScrollReveal';
 export default function Education() {
   return (
     <section id="education" className="py-24 relative overflow-hidden bg-slate-950/40 border-t border-cyan-500/10">
-      {/* Background Anime Watermark */}
+      {/* Background Anime Watermark & Ambient Orbs */}
       <div className="absolute top-10 left-10 pointer-events-none select-none opacity-5 font-black text-8xl font-display text-cyan-400 hidden md:block">
         ACADEMICS
       </div>
+      <div className="absolute top-1/4 right-0 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none animate-subtle-float" />
+      <div className="absolute bottom-10 left-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl pointer-events-none animate-subtle-float-reverse" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -37,24 +39,30 @@ export default function Education() {
               <ScrollReveal key={edu.id} direction="up" delay={index * 120}>
                 <TiltCard glowColor={isPresent ? 'cyan' : 'purple'}>
                   <div
-                    className={`relative rounded-2xl p-6 sm:p-8 bg-[#0f111f]/85 border transition-all duration-300 shadow-xl holo-sheen ${
+                    className={`relative rounded-2xl p-6 sm:p-8 bg-[#0f111f]/90 border transition-all duration-300 shadow-2xl holo-sheen preserve-3d ${
                       isPresent
-                        ? 'border-cyan-500/40 shadow-cyan-500/10'
-                        : 'border-white/10 hover:border-cyan-500/30'
+                        ? 'border-cyan-500/40 shadow-cyan-500/15'
+                        : 'border-white/10 hover:border-cyan-500/40'
                     }`}
                   >
                     {/* Status Indicator */}
                     {isPresent && (
-                      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-semibold mb-4 border border-cyan-500/30 font-mono">
-                        <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+                      <div
+                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/15 text-cyan-300 text-xs font-semibold mb-4 border border-cyan-400/40 font-mono shadow-sm"
+                        style={{ transform: 'translateZ(18px)' }}
+                      >
+                        <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
                         <span>Active Focus • Currently Pursuing</span>
                       </div>
                     )}
 
-                    <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-4">
+                    <div
+                      className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-4"
+                      style={{ transform: 'translateZ(15px)' }}
+                    >
                       <div>
                         <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500/20 to-purple-500/20 border border-cyan-500/30 text-cyan-400 flex items-center justify-center shrink-0">
+                          <div className="w-11 h-11 rounded-xl bg-gradient-to-tr from-cyan-500/20 to-purple-500/20 border border-cyan-500/40 text-cyan-400 flex items-center justify-center shrink-0 shadow-lg shadow-cyan-500/20">
                             <GraduationCap className="w-5 h-5" />
                           </div>
                           <h3 className="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">
@@ -62,11 +70,11 @@ export default function Education() {
                           </h3>
                         </div>
 
-                        <div className="mt-2 text-base font-semibold text-purple-400 flex flex-wrap items-center gap-2">
+                        <div className="mt-2 text-base font-semibold text-purple-300 flex flex-wrap items-center gap-2">
                           <Award className="w-4 h-4 shrink-0 text-cyan-400" />
                           <span>{edu.degree}</span>
                           {edu.grade && (
-                            <span className="ml-1 px-2.5 py-0.5 rounded-full text-xs font-bold font-mono bg-cyan-500/15 text-cyan-300 border border-cyan-500/40 shadow-sm shadow-cyan-500/10">
+                            <span className="ml-1 px-3 py-0.5 rounded-full text-xs font-bold font-mono bg-cyan-500/20 text-cyan-300 border border-cyan-400/50 shadow-md shadow-cyan-500/20">
                               {edu.grade}
                             </span>
                           )}
@@ -75,11 +83,11 @@ export default function Education() {
 
                       {/* Period & Location Metadata */}
                       <div className="flex flex-row sm:flex-col items-start sm:items-end gap-2 text-xs text-slate-400 shrink-0 font-mono">
-                        <div className="flex items-center gap-1.5">
+                        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-white/5 border border-white/10">
                           <Calendar className="w-3.5 h-3.5 text-pink-400" />
                           <span>{edu.period}</span>
                         </div>
-                        <div className="flex items-center gap-1.5">
+                        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-white/5 border border-white/10">
                           <MapPin className="w-3.5 h-3.5 text-cyan-400" />
                           <span>{edu.location}</span>
                         </div>
@@ -87,19 +95,25 @@ export default function Education() {
                     </div>
 
                     {/* Description */}
-                    <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-5">
+                    <p
+                      className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-5"
+                      style={{ transform: 'translateZ(10px)' }}
+                    >
                       {edu.description}
                     </p>
 
-                    {/* Tags */}
-                    <div className="pt-4 border-t border-white/10 flex flex-wrap items-center gap-2">
+                    {/* Tags with 3D micro lift */}
+                    <div
+                      className="pt-4 border-t border-white/10 flex flex-wrap items-center gap-2"
+                      style={{ transform: 'translateZ(14px)' }}
+                    >
                       <span className="text-xs font-semibold text-slate-400 flex items-center gap-1 mr-1 font-mono">
                         <BookOpen className="w-3.5 h-3.5 text-cyan-400" /> Highlights:
                       </span>
                       {edu.tags.map((tag, tIdx) => (
                         <span
                           key={tIdx}
-                          className="px-2.5 py-1 rounded-md text-xs font-medium bg-white/5 text-slate-300 border border-white/10"
+                          className="px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 text-slate-300 border border-white/10 hover:border-cyan-500/40 hover:text-cyan-300 transition-colors"
                         >
                           {tag}
                         </span>
