@@ -1,4 +1,4 @@
-import { Project, EducationItem, HobbyItem, SkillCategory } from '../types';
+import { Project, EducationItem, HobbyItem, SkillCategory, Certificate } from '../types';
 
 export const PERSONAL_INFO = {
   name: 'Pavan Kumar Perumalla',
@@ -211,5 +211,49 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
       { name: 'Analytical Thinking', level: 'Strengths', description: 'Breaking complex engineering problems into clean, modular solutions' },
       { name: 'Continuous Learning', level: 'Strengths', description: 'Eager exploration of emerging software, libraries, and global trends' }
     ]
+  }
+];
+
+export const CERTIFICATES: Certificate[] = [
+  {
+    id: 'nptel-iot',
+    title: 'Introduction to Internet of Things',
+    issuer: 'NPTEL • IIT Kharagpur (Funded by MoE, Govt. of India)',
+    date: 'Jan-Apr 2026 (12 Week Course)',
+    score: '73% (Consolidated)',
+    badge: 'Elite • Skill India',
+    image: '/Screenshot 2026-10-02 221746.png',
+    fallbackImage: '/nptel_iot_certificate.png',
+    skills: ['Internet of Things (IoT)', 'Sensors & Actuators', 'Embedded Systems', 'IIT Kharagpur']
+  },
+  {
+    id: 'cisco-ai',
+    title: 'Introduction to Modern AI',
+    issuer: 'Cisco Networking Academy',
+    date: 'Issued on Jul 05, 2026',
+    badge: 'Verified Credential',
+    image: '/cisco.png',
+    fallbackImage: '/cisco_modern_ai_certificate.png',
+    skills: ['Artificial Intelligence', 'Machine Learning', 'LLMs & Prompting', 'Chatbots']
+  },
+  {
+    id: 'cisco-analytics',
+    title: 'Data Analytics Essentials',
+    issuer: 'Cisco Networking Academy',
+    date: 'Issued on Jul 05, 2026',
+    badge: 'Verified Credential',
+    image: '/cisco 2.png',
+    fallbackImage: '/cisco_data_analytics_certificate.png',
+    skills: ['Data Analytics', 'SQL & Tableau', 'Data Preparation', 'Excel Labs']
+  },
+  {
+    id: 'cisco-apply-ai',
+    title: 'Apply AI: Analyze Customer Reviews',
+    issuer: 'Cisco Networking Academy',
+    date: 'Issued on Jul 05, 2026',
+    badge: 'Verified Credential',
+    image: '/cisco 3.png',
+    fallbackImage: '/cisco_apply_ai_certificate.png',
+    skills: ['Applied AI', 'Tabular Data Processing', 'Prompt Engineering', 'Spreadsheet Automation']
   }
 ];

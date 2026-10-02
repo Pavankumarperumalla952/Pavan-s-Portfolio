@@ -44,3 +44,16 @@ export interface SkillCategory {
     icon?: string;
   }[];
 }
+
+export interface Certificate {
+  id: string;
+  title: string;
+  issuer: string;
+  date: string;
+  score?: string;
+  badge?: string;
+  image: string;
+  fallbackImage: string;
+  verificationUrl?: string;
+  skills: string[];
+}

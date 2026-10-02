@@ -17,6 +17,7 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
     { name: 'About', href: '#about' },
     { name: 'Hobbies', href: '#hobbies' },
     { name: 'Education', href: '#education' },
+    { name: 'Certifications', href: '#certifications' },
     { name: 'Projects', href: '#projects' },
     { name: 'Skills', href: '#skills' },
     { name: 'Resume', href: '#resume' },
@@ -27,7 +28,7 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
-      const sections = ['home', 'about', 'hobbies', 'education', 'projects', 'skills', 'resume', 'contact'];
+      const sections = ['home', 'about', 'hobbies', 'education', 'certifications', 'projects', 'skills', 'resume', 'contact'];
       const scrollPos = window.scrollY + 200;
 
       for (let i = sections.length - 1; i >= 0; i--) {
